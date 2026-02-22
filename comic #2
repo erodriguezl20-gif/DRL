@@ -1,0 +1,50 @@
+#include "Estudiante.cpp"
+#include <iostream>
+using namespace std;
+// ------------------
+// Clase Estudiante
+// ------------------
+class Estudiante : public Persona {
+private:
+    string carnet;
+
+public:
+    Estudiante() {}
+
+    void setCarnet(string c) {
+        carnet = c;
+    }
+
+    string getCarnet() {
+        return carnet;
+    }
+
+    void leer() {
+        Persona::leer();
+        cout << "Carnet: " << carnet << endl;
+    }
+};
+
+// -------------------
+// Función principal
+// -------------------
+int main() {
+
+    Docente d;
+    cout << "\n--- INGRESO DOCENTE ---\n";
+    d.crear();
+    d.setDatos("D001", "1234567-8", 3500.50, "Ingeniero");
+
+    cout << "\n--- DATOS DOCENTE ---\n";
+    d.leer();
+
+    Estudiante e;
+    cout << "\n--- INGRESO ESTUDIANTE ---\n";
+    e.crear();
+    e.setCarnet("E2026001");
+
+    cout << "\n--- DATOS ESTUDIANTE ---\n";
+    e.leer();
+
+    return 0;
+}
